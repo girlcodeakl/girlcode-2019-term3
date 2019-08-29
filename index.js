@@ -26,6 +26,7 @@ function saveNewPost(request, response) {
  let post= {};
  post.message = request.body.message;
  post.time = new Date();
+ post.image = request.body.image;
  posts.push(post);
   response.send("thanks for your message. Press back to add another");
 }
