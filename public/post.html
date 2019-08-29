@@ -17,6 +17,7 @@
 
       <form method="post" action="/posts">
           <input class="messageInput" type="text" name="message" value="message goes here">
+          <input class="imageInput" type="text" name="image" value=" ">
           <button class="postButton">Post it!</button>
       </form>
       <script>
@@ -24,6 +25,7 @@
         document.querySelector(".note").innerHTML = "Thanks: Your message was saved!";
         let data = {};
         data.message = document.querySelector(".messageInput").value;
+        data.image = document.querySelector(".imageInput").value;
         console.log(data.message)
         fetch("/posts",{
           method:"POST",
