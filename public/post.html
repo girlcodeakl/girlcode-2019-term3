@@ -6,6 +6,7 @@
   </head>
   <body>
 
+  
 
 <div class="topnav">
     <a class="active" href="/feed.html">Feed</a>
@@ -19,6 +20,14 @@
           <input class="messageInput" type="text" name="message" value="message goes here">
           <input class="imageInput" type="text" name="image" value=" ">
           <button class="postButton">Post it!</button>
+<br>
+<input type="radio" name="category" value="Too Good To Be True"> Too Good To Be True<br>
+<input type="radio" name="category" value="Gentle"> Gentle<br>
+<input type="radio" name="category" value="Dark"> Dark <br>
+<input type="radio" name="category" value="Pragmatic"> Pragmatic
+          
+          
+
       </form>
       <script>
       function sendMessageToServer(e) {
@@ -26,6 +35,8 @@
         let data = {};
         data.message = document.querySelector(".messageInput").value;
         data.image = document.querySelector(".imageInput").value;
+        data.category = document.querySelector('input[name="category"]:checked').value;
+
         console.log(data.message)
         fetch("/posts",{
           method:"POST",
