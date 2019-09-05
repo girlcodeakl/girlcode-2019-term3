@@ -27,6 +27,7 @@ function saveNewPost(request, response) {
  post.message = request.body.message;
  post.time = new Date();
  post.image = request.body.image;
+ post.category = request.body.category;
  posts.push(post);
   response.send("thanks for your message. Press back to add another");
 }
