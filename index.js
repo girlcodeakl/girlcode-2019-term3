@@ -7,6 +7,19 @@ let bodyParser = require('body-parser')
 //look in the public folder. If it's there, give it to them.
 app.use(express.static(__dirname + '/public'));
 
+
+// pick and return a random element from the given list
+function pickRandomFrom(list) {
+  return list[Math.floor(Math.random()*list.length)];
+};
+//give the client a random post
+function getRandomPost(request, response) {
+  let randomPost = pickRandomFrom(posts);
+  response.send(randomPost);
+};
+
+app.get('/random', getRandomPost);
+
 //this lets us read POST data
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
