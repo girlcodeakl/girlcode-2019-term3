@@ -11,6 +11,8 @@
   </head>
   <body>
 
+    <a class="link" href="#">Get Fortune</a>
+
       <div class="topnav">
           <a class="active" href="/feed.html">Feed</a>
           <a href="/post.html">Message</a>
@@ -38,17 +40,23 @@ function displayMessage(post) {
   + '</div>';
 
   let messageList = document.querySelector(".message-list");
-  messageList.innerHTML += postHTML;
+  messageList.innerHTML = postHTML;
 }
 
 function createFeed(posts) {
   posts.forEach(displayMessage);
 }
 
-fetch("/random")
+function getFortune() {
+fetch("/random/dark") 
   .then(response => response.json())
-  .then(displayMessage);
+  .then(displayMessage)
+}
 
+getFortune()
+
+let link = document.querySelector(".link");
+link.addEventListener("click", getFortune);
 
 //This is the end of the JavaScript.
     </script>
