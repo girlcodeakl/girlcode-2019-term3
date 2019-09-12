@@ -11,6 +11,11 @@
   </head>
   <body>
 
+    <a class="link link1" href="#">Get a Dark Fortune</a>
+    <a class="link link2" href="#">Get a Gentle Fortune</a>
+    <a class="link link3" href="#">Get a Too Good To Be True Fortune</a>
+    <a class="link link4" href="#">Get a Pragmatic Fortune</a>
+
       <div class="topnav">
           <a class="active" href="/feed.html">Feed</a>
           <a href="/post.html">Message</a>
@@ -38,17 +43,54 @@ function displayMessage(post) {
   + '</div>';
 
   let messageList = document.querySelector(".message-list");
-  messageList.innerHTML += postHTML;
+  messageList.innerHTML = postHTML;
 }
 
 function createFeed(posts) {
   posts.forEach(displayMessage);
 }
 
-fetch("/random")
-  .then(response => response.json())
-  .then(displayMessage);
+getFortune1()
 
+function getFortune1() {
+fetch("/random/dark") 
+  .then(response => response.json())
+  .then(displayMessage)
+}
+
+
+let link1 = document.querySelector(".link1");
+link1.addEventListener("click", getFortune1);
+
+function getFortune2() {
+fetch("/random/gentle") 
+  .then(response => response.json())
+  .then(displayMessage)
+}
+
+
+let link2 = document.querySelector(".link2");
+link2.addEventListener("click", getFortune2);
+
+function getFortune3() {
+fetch("/random/too good to be true") 
+  .then(response => response.json())
+  .then(displayMessage)
+}
+
+
+let link3 = document.querySelector(".link3");
+link3.addEventListener("click", getFortune3);
+
+function getFortune4() {
+fetch("/random/pragmatic") 
+  .then(response => response.json())
+  .then(displayMessage)
+}
+
+
+let link4 = document.querySelector(".link4");
+link4.addEventListener("click", getFortune4);
 
 //This is the end of the JavaScript.
     </script>
