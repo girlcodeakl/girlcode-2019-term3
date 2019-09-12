@@ -14,11 +14,16 @@ function pickRandomFrom(list) {
 };
 //give the client a random post
 function getRandomPost(request, response) {
-  let randomPost = pickRandomFrom(posts);
+  console.log(request.params.category)
+  const matchingPosts = posts.filter(p => p.category.toLowerCase() === request.params.category.toLowerCase());
+  let randomPost = pickRandomFrom(matchingPosts);
   response.send(randomPost);
+  
 };
 
-app.get('/random', getRandomPost);
+
+
+app.get('/random/:category', getRandomPost);
 
 //this lets us read POST data
 app.use(bodyParser.urlencoded({ extended: false }))
