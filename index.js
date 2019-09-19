@@ -18,13 +18,11 @@ function pickRandomFrom(list) {
 //give the client a random post
 function getRandomPost(request, response) {
   console.log(request.params.category)
-  const matchingPosts = posts.filter(p => p.category.toLowerCase() === request.params.category.toLowerCase());
+  const matchingPosts = posts.filter(p => p.category && p.category.toLowerCase() === request.params.category.toLowerCase());
   let randomPost = pickRandomFrom(matchingPosts);
   response.send(randomPost);
   
 };
-
-
 
 app.get('/random/:category', getRandomPost);
 
