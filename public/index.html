@@ -54,7 +54,7 @@ function createFeed(posts) {
 getFortune1()
 
 function getFortune1() {
-fetch("/random/dark") 
+fetch("/random/gentle") 
   .then(response => response.json())
   .then(displayMessage)
 }
@@ -64,7 +64,7 @@ let link1 = document.querySelector(".button2");
 link1.addEventListener("click", getFortune1);
 
 function getFortune2() {
-fetch("/random/gentle") 
+fetch("/random/too good to be true") 
   .then(response => response.json())
   .then(displayMessage)
 }
@@ -74,14 +74,14 @@ let link2 = document.querySelector(".button4");
 link2.addEventListener("click", getFortune2);
 
 function getFortune3() {
-fetch("/random/too good to be true") 
+fetch("/random/dark") 
   .then(response => response.json())
   .then(displayMessage)
 }
 
 
 let link3 = document.querySelector(".button5");
-link3.addEventListener("click", getFortune3);
+link3.addEventListener("click", getFortune4);
 
 function getFortune4() {
 fetch("/random/pragmatic") 
@@ -90,8 +90,22 @@ fetch("/random/pragmatic")
 }
 
 
-let link4 = document.querySelector(".button1");
-link4.addEventListener("click", getFortune4);
+let link4 = document.querySelector(".button3");
+link4.addEventListener("click", getFortune3);
+
+
+function getFortuneAny() {
+fetch("/random/pragmatic") 
+  .then(response => response.json())
+  .then(displayMessage)
+}
+
+
+let linkAny = document.querySelector(".button1");
+linkAny.addEventListener("click", getFortuneAny);
+
+
+
 
 //This is the end of the JavaScript.
     </script>
