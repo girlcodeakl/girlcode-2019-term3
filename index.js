@@ -49,6 +49,9 @@ function saveNewPost(request, response) {
  post.time = new Date();
  post.image = request.body.image;
  post.category = request.body.category;
+ if (post.image === "") {
+  post.image = "https://i.imgur.com/ENri5dM.jpg"
+   }
  posts.push(post);
   response.send("thanks for your message. Press back to add another");
   databasePosts.insert(post);
